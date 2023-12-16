@@ -26,21 +26,23 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
     var weatherData = await getCityWeather(
       cityName: null,
-      latitude: location.latitude.toString(),
-      longitude: location.longitude.toString(),
-    );
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) {
-          return LocationScreen(
-            locationWeather: weatherData,
-          );
-        },
-      ),
-    );
+      // latitude: location.latitude.toString(),
+      // longitude: location.longitude.toString(),
+    ).then((value) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return LocationScreen(
+              locationWeather: value,
+            );
+          },
+        ),
+      );
+    });
   }
+
+
 
   // //method to get city weather
   // Future<dynamic> getCityWeather(String cityName) async {

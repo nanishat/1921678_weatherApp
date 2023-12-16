@@ -13,12 +13,11 @@ class LocationScreen extends StatefulWidget {
 }
 
 class LocationScreenState extends State<LocationScreen> {
-  int temperature = 0;
-  int minTemperature = 0;
-  int maxTemperature = 0;
-  double windSpeed = 0.0;
-  int humidity = 50;
-
+  num temperature = 0;
+  num minTemperature = 0;
+  num maxTemperature = 0;
+  num windSpeed = 0.0;
+  num humidity = 50;
   String cityName = "Dhaka";
 
   @override
@@ -29,11 +28,11 @@ class LocationScreenState extends State<LocationScreen> {
 
   void updateUI(dynamic weatherData) async{
     String cityName = weatherData['name'];
-    double temp = weatherData['main']['temp'];
-    double minTemp = weatherData['main']['temp_min'];
-    double maxTemp = weatherData['main']['temp_max'];
-    double windSpeed = weatherData['wind']['speed'];
-    int humidity = weatherData['main']['humidity'];
+    num temp = weatherData['main']['temp'];
+    num minTemp = weatherData['main']['temp_min'];
+    num maxTemp = weatherData['main']['temp_max'];
+    num windSpeed = weatherData['wind']['speed'];
+    num humidity = weatherData['main']['humidity'];
 
 
     setState(() {

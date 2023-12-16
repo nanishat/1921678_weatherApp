@@ -15,8 +15,9 @@ Future<dynamic> getCityWeather({
       NetworkHelper networkHelper = NetworkHelper('$weatherUrl');
       var weatherData = await networkHelper.getData();
       return weatherData;
-    } else if (latitude != null && longitude != null) {
+    } else if (latitude == null && longitude == null) {
       Position position = await Geolocator.getCurrentPosition();
+      print(position.toString());
       double latitude = position.latitude;
       double longitude = position.longitude;
 
@@ -25,6 +26,7 @@ Future<dynamic> getCityWeather({
 
       NetworkHelper networkHelper = NetworkHelper('$weatherUrl');
       var weatherData = await networkHelper.getData();
+      print(weatherData);
       return weatherData;
     } else {
       return null;
